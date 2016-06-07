@@ -35,7 +35,6 @@ Ext.define('core.Component', {
 		this.el.setAttribute('widget', this.$className);
 		
 		this.onRender(container, position);
-		//insert 到界面
 
 		this.fireEvent('render');
 
@@ -48,22 +47,18 @@ Ext.define('core.Component', {
 		this.template = this.template.constructor == Array ? this.template.join('') : this.template;
 		this.template = this.substitute(this.template, this.data);
 		
-		
-		this.el.appendChild($.parseHTML(this.template));
+		this.el.innerHTML = this.template;
 
 		if (container.constructor == jQuery) {
-			//container.children().remove();
-			container.append(el);
 			this.container = container[0];
 		} else if (container instanceof HTMLElement) {
-			//$(container).children().remove();
-			$(container).append(el);
-			this.container = $(container)[0];
+			this.container = container;
 		} else if (container.constructor == String) {
-			//$('#' + container).children().remove();
-			$('#' + container).append(el);
-			this.container = $('#' + container)[0];
+			this.container = document.getElementById(container);
 		}
+		
+		this.container.appendChild(this.el);
+		
 	},
 	substitute: function(html, data) {
 		var reg = /\{([\w-]+)\}/g;	// /\{([^\}]+)\}/g
@@ -89,8 +84,8 @@ Ext.define('core.Component', {
 	},
 	destroy: function() {
 		this.onDestroy();
-		if(this.container) {
-			$(this.container).children().remove();
+		if(this.el) {
+			$(this.el).children().remove();
 		}
 		this.container = null;
 	},

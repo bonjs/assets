@@ -8,19 +8,10 @@ Ext.define('core.DataView', {
 	data: {},
 	url: '',
 	
-	constructor : function() {
-		console.log('DataView init' + this.template);
-		var me = this;
-		this.callParent(arguments);
-		
-		this.on('load', function(data) {
-			$(this.el).children().remove();
-		});
-	},
 	initData: function() {
 		var me = this;
 		
-		if(this.url) {
+		if(typeof this.url == 'string') {
 			if(me.fireEvent('beforeload') === false) {
 				return;
 			};
@@ -33,7 +24,9 @@ Ext.define('core.DataView', {
 		
 		function afterLoad(data) {
 			this.fireEvent('load', data);
-			this.tpl.append(this.el, data);
+			
+			//this.tpl.append(this.el, data);
+			this.tpl.overwrite(this.el, data);
 			this.container.appendChild(this.el);
 			this.fireEvent('afterload', data);
 		}

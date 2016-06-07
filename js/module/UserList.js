@@ -14,18 +14,18 @@ Ext.define('js.module.UserList', {
 					'<li>{desc}</li>',
 				'</ul>',
 			'</tpl>',
-			'<div tag=test>aaaaa</div>',
 		'</div>'
 	],
 	/*
 	data: [
-			{name: 'sun', sex: 'm', desc:'fdsafds'},
-			{name: 'tom', sex: 'm', desc:'aaas'},
-		],*/
+		{name: 'sun', sex: 'm', desc:'fdsafds'},
+		{name: 'tom', sex: 'm', desc:'aaas'},
+	],*/
 	constructor: function() {
 		var me = this;
 		console.log('UserList 初始化');
 		this.callParent(arguments);
 		console.log($('div[tag=test]', this.el).length);
+		
 	}
 });
