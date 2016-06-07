@@ -94,6 +94,8 @@ Ext._startTime = new Date().getTime();
 
         return object;
     };
+    
+    Ext.util = {};
 
     Ext.buildSettings = Ext.apply({
         baseCSSPrefix: 'x-'

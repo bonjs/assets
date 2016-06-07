@@ -75,8 +75,10 @@ Build date: 2013-05-16 14:36:50 (f9be68accb407158ba2b1be2c226a6ce1f649314)
  * @singleton
  */
 (function() {
-    Ext.ns('Ext.util');
+    //Ext.ns('Ext.util');
 
+	Ext.util = {};
+	
     var UtilFormat     = Ext.util.Format = {},
         stripTagsRE    = /<\/?[^>]+>/gi,
         stripScriptsRe = /(?:<script.*?>)((\n|\r|.)*?)(?:<\/script>)/ig,

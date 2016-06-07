@@ -18,7 +18,16 @@ Ext.define('core.Template', {
         v;
 
 	    if (Ext.isArray(html)) {
-	        html = html.join("");
+	        //html = html.join("");
+	        for(var i = 0, len = html.length; i < len; i++){
+	            v = html[i];
+	            if(typeof v == 'object'){
+	                Ext.apply(me, v);
+	            } else {
+	                buf.push(v);
+	            }
+	        };
+	        html = buf.join('');
 	    } else if (a.length > 1) {
 	        for(var i = 0, len = a.length; i < len; i++){
 	            v = a[i];

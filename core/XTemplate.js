@@ -99,7 +99,7 @@ Ext.define('core.XTemplate', {
 
     // private
     compileTpl : function(tpl){
-        var fm = function() {},//Ext.util.Format,
+        var fm = Ext.util.Format,
             useF = this.disableFormats !== true,
             sep = Ext.isGecko ? "+" : ",",
             body;
