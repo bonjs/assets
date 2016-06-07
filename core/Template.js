@@ -13,31 +13,26 @@ Ext.define('core.Template', {
     },
 	constructor: function(html) {
 		var me = this,
-        a = arguments,
-        buf = [],
-        v;
+        a = arguments;
 
 	    if (Ext.isArray(html)) {
 	        //html = html.join("");
-	        for(var i = 0, len = html.length; i < len; i++){
-	            v = html[i];
-	            if(typeof v == 'object'){
-	                Ext.apply(me, v);
-	            } else {
-	                buf.push(v);
-	            }
-	        };
-	        html = buf.join('');
+	        html = getHtml(html);
 	    } else if (a.length > 1) {
-	        for(var i = 0, len = a.length; i < len; i++){
-	            v = a[i];
+	        html = getHtml(a);
+	    }
+	    
+	    function getHtml(a) {
+	    	var buf = [];
+	    	for(var i = 0, len = a.length; i < len; i++){
+	            var v = a[i];
 	            if(typeof v == 'object'){
 	                Ext.apply(me, v);
 	            } else {
 	                buf.push(v);
 	            }
 	        };
-	        html = buf.join('');
+	    	return buf.join('');
 	    }
 	
 	    me.html = html;
