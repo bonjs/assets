@@ -577,12 +577,7 @@ var noArgs = [],
                         method.$owner.superclass.self[method.$name])).apply(this, args || noArgs);
         },
         super: function(args) {
-            var method;
-
-            // This code is intentionally inlined for the least number of debugger stepping
-            return (method = this.super.caller) && (method.$previous ||
-                  ((method = method.$owner ? method : method.caller) &&
-                        method.$owner.superclass.self[method.$name])).apply(this, args || noArgs);
+            return this.callParent(args);
         },
 
         // Documented downwards
