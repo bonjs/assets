@@ -1,0 +1,100 @@
+/**
+ *author: spq 
+ */
+// 组件
+Ext.define('core.Component', {
+	extend : 'core.Observable',
+	//requires: ['core.XTemplate'],
+	template : '<div></div>',
+	constructor : function(config) {
+		this.callParent(arguments);
+		if (config) {
+			Ext.apply(this, config);
+		} else {
+			config = {};
+		}
+
+		if (this.listeners) {
+			this.on(this.listeners);
+			this.listeners = null;
+			//change the value to remove any on prototype
+		}
+
+		if (this.renderTo) {
+			this.render(this.renderTo);
+			delete this.renderTo;
+		}
+	},
+
+	render : function(container, position) {
+		if (this.fireEvent('beforerender') === false) {
+			return;
+		}
+		
+		this.el = document.createElement('div');
+		this.el.setAttribute('widget', this.$className);
+		
+		this.onRender(container, position);
+		//insert 到界面
+
+		this.fireEvent('render');
+
+		this.afterRender();
+
+		this.fireEvent('afterrender');
+	},
+	onRender : function(container, position) {
+		
+		this.template = this.template.constructor == Array ? this.template.join('') : this.template;
+		this.template = this.substitute(this.template, this.data);
+		
+		
+		this.el.appendChild($.parseHTML(this.template));
+
+		if (container.constructor == jQuery) {
+			//container.children().remove();
+			container.append(el);
+			this.container = container[0];
+		} else if (container instanceof HTMLElement) {
+			//$(container).children().remove();
+			$(container).append(el);
+			this.container = $(container)[0];
+		} else if (container.constructor == String) {
+			//$('#' + container).children().remove();
+			$('#' + container).append(el);
+			this.container = $('#' + container)[0];
+		}
+	},
+	substitute: function(html, data) {
+		var reg = /\{([\w-]+)\}/g;	// /\{([^\}]+)\}/g
+		return html.replace(reg, function(el, key) {
+			var v = data[key];
+			return v === void 0 ? key : v;
+		});
+	},
+
+	show: function() {
+		this.el.forEach(function(e, i) {
+			e.style.display = 'block';
+		});
+		this.fireEvent('show');
+	},
+	hide: function() {
+		Ext.each(function(e, i) {
+			e.style.display = 'none';
+		});
+		this.fireEvent('hide');
+	},
+	afterRender : function() {
+	},
+	destroy: function() {
+		this.onDestroy();
+		if(this.container) {
+			$(this.container).children().remove();
+		}
+		this.container = null;
+	},
+	onDestroy: function() {
+		//throw new error("抽象类必须被重写");
+	}
+});

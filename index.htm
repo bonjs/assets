@@ -1,0 +1,89 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script src="ext-4.2.1.883/src/Ext.js"></script>
+		
+		<!-- 可去掉　-->
+		<!--<script src="ext-4.2.1.883/src/lang/String.js"></script>-->
+		
+		<!-- 可去掉　需要设置disableCaching为false -->
+		<!--<script src="ext-4.2.1.883/src/lang/Date.js"></script>-->
+		
+		<script src="ext-4.2.1.883/src/lang/Object.js"></script>
+		<script src="ext-4.2.1.883/src/lang/Array.js"></script>
+		<script src="ext-4.2.1.883/src/lang/Function.js"></script>
+		<script src="ext-4.2.1.883/src/class/Base.js"></script>
+		
+		<!--
+		<script src="ext-4.2.1.883/src/Ext-more.js"></script>
+		<script src="ext-4.2.1.883/src/Support.js"></script>
+		-->
+		<script src="ext-4.2.1.883/src/class/Class.js"></script>
+		<script src="ext-4.2.1.883/src/class/ClassManager.js"></script>
+		<script src="ext-4.2.1.883/src/class/Loader.js"></script>
+		<!--
+		<script src="ext-4.2.1.883/src/lang/Error.js"></script>
+		-->
+		
+		<script src=http://www.che001.com/js/plugin/jquery/jquery-1.10.2.min.js></script>
+		<script src=director.min.js></script>
+		
+		<style>
+			* {
+				margin: 0px;
+				padding: 0px;
+			}
+			#left {
+				width: 200px;
+				height: 100%;
+				position: absolute;
+				border: 1PX BLUE SOLID;
+			}
+			#left ul li {
+				padding-left: 20px;
+			}
+			li {
+				list-style: none;
+			}
+			#center {
+				margin-left: 204px;
+				height: 100%;
+				border: 1PX BLUE SOLID;
+			}
+			
+			[widget='js.module.UserList'] ul li{
+				width: 30%;
+				border: 1px red solid;
+				list-style: none;
+				display: inline-block;
+			}
+			
+		</style>
+	</head>
+	
+	<body>
+		<div>
+			<div id="left">
+				<ul>
+					<li><a href="#/user">user</a></li>
+					<li><a href="#/userList">userList</a></li>
+					<li><a href="#/dog">dog</a></li>
+				</ul>
+			</div>
+			<div id="center">
+				<div id=c1></div>
+			</div>
+		</div>
+		
+		<script>
+			
+			// http://www.cnblogs.com/Showshare/p/director-chinese-tutorial.html
+			Ext.Loader.setConfig({
+				disableCaching: false
+			});
+			
+			Ext.create('js.MainRouter');
+		
+		</script>
+	</body>
+</html>

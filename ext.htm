@@ -1,0 +1,24 @@
+<html>
+	<head>
+		<script src="ext-4.2.1.883/ext-all-dev.js"></script>
+	</head>
+	
+	<body>
+		<script>
+		
+			Ext.onReady(function(){
+				
+				var u = Ext.create('js.User', {
+					name: 'ok',
+					listeners: {
+						render: function() {
+							alert('render');
+						}
+					}
+				});
+				
+			});
+
+		</script>
+	</body>
+</html>
