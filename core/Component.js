@@ -87,7 +87,9 @@ Ext.define('core.Component', {
 		if(this.el) {
 			$(this.el).children().remove();
 		}
-		this.container = null;
+		this.el = undefined;
+		this.template = undefined;
+		this.container = undefined;
 	},
 	onDestroy: function() {
 		//throw new error("抽象类必须被重写");

@@ -21,7 +21,7 @@ Ext.define('js.module.User', {	// 声明类
 			'</ul>',
 		'</div>'
 	],
-	data: {					// 如没有设置url, 刚数据在此获取, 应的数据， 相当于m层，暂这样定义，待完善
+	data: {					// 如没有设置url, 则数据在此获取, 相当于m层
 		name: '曾经年少爱追梦',
 		sex: '男',
 		desc: '描述'
@@ -36,9 +36,9 @@ Ext.define('js.module.User', {	// 声明类
 	},
 	
 	// 构造方法
-	constructor : function() {		// 如不重写请不要写此类
+	constructor : function() {		// 如不重写可以不写
 		console.log('user 初始化');
-		this.callParent(arguments);
+		this.super(arguments);
 		
 		this.on('say', function() {	// 自定义事件
 			console.lgo('say');

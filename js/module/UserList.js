@@ -24,8 +24,6 @@ Ext.define('js.module.UserList', {
 	constructor: function() {
 		var me = this;
 		console.log('UserList 初始化');
-		this.callParent(arguments);
-		console.log($('div[tag=test]', this.el).length);
-		
+		this.super(arguments);
 	}
 });

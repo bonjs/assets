@@ -10,9 +10,6 @@ Ext.define('js.module.Dog', {
 	data: {dogName: '狗狗'},
 	constructor: function() {
 		console.log('dog 初始化');
-		this.callParent(arguments);
-	},
-	say: function() {
-		console.log('duoduo say');
+		this.super(arguments);
 	}
 });

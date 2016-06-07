@@ -8,6 +8,7 @@ Ext.define('js.MainRouter', {
 	activeComponent: {},
 	doRouter: function(modulName) {
 		var lc = this.lastComponent;
+		
 		lc = this.activeComponent;	// 记录上个组件，然后销毁掉
 		this.activeComponent = Ext.create(modulName);
 		
@@ -19,7 +20,7 @@ Ext.define('js.MainRouter', {
 	// 构造方法
 	constructor : function() {
 		var me = this;
-		this.callParent(arguments);
+		this.super(arguments);
 		
 		var routes = {
 			'/user': function() {
