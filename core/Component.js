@@ -86,7 +86,7 @@ Ext.define('core.Component', {
 	destroy: function() {
 		this.onDestroy();
 		if(this.el) {
-			$(this.el).children().remove();
+			$(this.container).children().remove();
 		}
 		this.el = undefined;
 		this.template = undefined;
