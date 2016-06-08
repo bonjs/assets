@@ -1,9 +1,6 @@
 /**
  *author: spq 
  */
-function test(v) {
-	return 'ccc';
-}
 Ext.define('js.module.User', {	// 声明类
 	extend: 'core.DataView',	// 继承的类，所有的ui组件都继承此类，如不设置则默认继承的Object类
 	// singleton: true,

@@ -6,7 +6,6 @@ Ext.define('core.DataView', {
 	extend: 'core.Component',
 	requires: ['core.XTemplate'],
 	data: {},
-	url: '',
 	
 	initData: function() {
 		var me = this;

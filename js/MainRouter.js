@@ -31,6 +31,9 @@ Ext.define('js.MainRouter', {
 			},
 			'/userList': function(id) {
 				me.doRouter('js.module.UserList');
+			},
+			'/userEdit': function() {
+				me.doRouter('js.module.UserEdit');
 			}
 		};
 		

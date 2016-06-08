@@ -1,0 +1,130 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script src="ext-4.2.1.883/src/Ext.js"></script>
+		<script src="ext-4.2.1.883/src/Ext-more.js"></script>
+		
+		<!-- 可去掉　-->
+		<!--<script src="ext-4.2.1.883/src/lang/String.js"></script>-->
+		
+		<!-- 可去掉　需要设置disableCaching为false -->
+		<!--<script src="ext-4.2.1.883/src/lang/Date.js"></script>-->
+		
+		<script src="ext-4.2.1.883/src/lang/Object.js"></script>
+		<script src="ext-4.2.1.883/src/lang/Array.js"></script>
+		<script src="ext-4.2.1.883/src/lang/Function.js"></script>
+		<script src="ext-4.2.1.883/src/class/Base.js"></script>
+		
+		<!--
+		<script src="ext-4.2.1.883/src/Ext-more.js"></script>
+		<script src="ext-4.2.1.883/src/Support.js"></script>
+		-->
+		<script src="ext-4.2.1.883/src/class/Class.js"></script>
+		<script src="ext-4.2.1.883/src/class/ClassManager.js"></script>
+		<script src="ext-4.2.1.883/src/class/Loader.js"></script>
+		<!--
+		<script src="ext-4.2.1.883/src/lang/Error.js"></script>
+		-->
+		
+		<script src=http://www.che001.com/js/plugin/jquery/jquery-1.10.2.min.js></script>
+		<script src=director.min.js></script>
+		<script src=js/way.js></script>
+		<style>
+			* {
+				margin: 0px;
+				padding: 0px;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<div id=c1></div>
+		<script>
+		
+		
+		
+			  var 
+		        re = /<tpl\b[^>]*>((?:(?=([^<]+))\2|<(?!tpl\b[^>]*>))*?)<\/tpl>/,
+		        nameRe = /^<tpl\b[^>]*?for="(.*?)"/,
+		        ifRe = /^<tpl\b[^>]*?if="(.*?)"/,
+		        execRe = /^<tpl\b[^>]*?exec="(.*?)"/;
+		        
+		        
+		        
+		        
+		        
+		     
+		        
+		   /*
+										 var html = [
+						   '<tpl if="fdsad">',
+							   '<div>',
+								   '<li>',
+								   '</li>',
+							   '</div>',
+						   '<tpl>',
+					   ].join('');
+					   while((m = html.match(re))){
+						   var m2 = m[0].match(nameRe),
+						   m3 = m[0].match(ifRe),
+						   m4 = m[0].match(execRe),
+						   exp = null,
+						   fn = null,
+						   exec = null,
+						   name = m2 && m2[1] ? m2[1] : '';
+												   }
+				   */
+		   
+			/*
+			var html = [
+							'<div way-repeat="userList">',
+								'<div way-data="name">{name}</div>',
+							'</div>'
+						].join('');	
+						var html = '<div><tpl><img></tpl></div>';
+						var reg = /(?:(\{\%)|(\{\[)|\{([^{}]+)\})|(?:<tpl([^>]*)\>)|(?:<\/tpl>)/g;
+						var m = reg.exec(html);
+						console.log(m);
+						function test(html) {
+							var reg = /\{([\w-]+)\}/g;	// /\{([^\}]+)\}/g
+							//reg = /(?:(\{\%)|(\{\[)|\{([^{}]+)\})|(?:<tpl([^>]*)\>)|(?:<\/tpl>)/g
+							return html.replace(reg, function(el, key) {
+								console.log(el, key);
+							});
+						};*/
+						
+						var html = [
+							'<repeat style="border: 1px red solid">',
+								'<div way-dd=tt>{name}</div>',
+								'<div>{sex}</div>',
+							'</repeat>'
+						].join('');
+						
+						console.log(test(html));
+						
+						$(document.body).append(test(html));
+						way.set('userList', [
+							{
+								name: 'sun',
+								sex: 'm'
+							}, {
+								name: 'tom',
+								sex: 'm'
+							}
+						]);
+						
+						function test(html) {
+							var reg = /\>{([\w-]+)\}/g;	// /\{([^\}]+)\}/g
+							return html.replace(/<repeat/gi, function(a, b){
+								return '<div way-repeat=userList'
+							}).replace(/<\/repeat>/gi, function(){
+								return '</div>';
+							}).replace(reg, function(el, key) {
+								return ' way-data="' + key + '">';
+							});
+						};
+			
+			
+		</script>
+	</body>
+</html>
