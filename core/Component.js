@@ -6,6 +6,7 @@ Ext.define('core.Component', {
 	extend : 'core.Observable',
 	//requires: ['core.XTemplate'],
 	template : '<div></div>',
+	data: {},
 	constructor : function(config) {
 		this.callParent(arguments);
 		if (config) {
@@ -46,7 +47,7 @@ Ext.define('core.Component', {
 		
 		this.template = this.template.constructor == Array ? this.template.join('') : this.template;
 		this.template = this.substitute(this.template, this.data);
-		
+		console.log(this.template);
 		this.el.innerHTML = this.template;
 
 		if (container.constructor == jQuery) {
