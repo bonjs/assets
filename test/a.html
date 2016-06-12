@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>vdt template engine demo</title>
+    
+	<script src=http://www.che001.com/js/plugin/jquery/jquery-1.10.2.min.js></script>
+	<script type="text/javascript" src="../third-party/vdt.js"></script>
+	<style>
+		 div  li {
+		 	width: 100px;
+			background-color: #666;
+			list-style: none;
+			display: inline-block;
+			color: white;
+		 }
+	</style>
+</head>
+<body>
+	<div id=a style="border: 1px red solid;height: 200px; width: 200px"></div>
+<script type="text/javascript">
+	
+	var html = [
+		'<div>',
+			'<for data="userList" style="border: 1px blue solid">',
+				'<ul>',
+					'<li>{name}</li>',
+					'<li>{sex}</li>',
+					'<li>{desc}</li>',
+					'<li>{time}</li>',
+				'</ul>',
+			'</for>',
+		'</div>'
+	].join('');
+    var vdt = Vdt(html);
+    
+	var data = {
+		name: 'sun',
+		sex: 'm',
+		input :'fas',
+		desc: 'description',
+		time: new Date().toLocaleTimeString()
+	};
+	
+	var d = vdt.render(data);
+	
+	document.getElementById('a').appendChild(d);
+
+    setTimeout(function() {
+        vdt.data.time = new Date().getTime();
+        vdt.update();
+    }, 2000);
+</script>
+</body>
+</html>

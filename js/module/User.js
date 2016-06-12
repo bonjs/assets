@@ -18,7 +18,7 @@ Ext.define('js.module.User', {	// 声明类
 				'<li>',
 					'描述:{desc}',
 				'</li>',
-			'</ul>',
+			'</tpl>',
 		'</div>',
 	],
 	data: {					// 如没有设置url, 则数据在此获取, 相当于m层

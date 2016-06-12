@@ -34,8 +34,6 @@ Ext.define('js.module.UserEdit', {
 			$('button').click(function() {
 				alert('click')
 			})
-		})
-			
-		
+		});
 	}
 });
