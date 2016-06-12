@@ -6,10 +6,6 @@ Ext.define('core.DataViewVdt', {
 	extend: 'core.DataView',
 	data: {},
 	
-	constructor: function() {
-		this.super(arguments);
-	},
-	
 	onRender: function(container, position) {	// 重写父类
 		
 		this.widgetId = this.getId();
@@ -65,7 +61,6 @@ Ext.define('core.DataViewVdt', {
 		
 	},
 	
-	
 	// 将<for>标签转成vdt的形式
 	getTemplate: function(html) {
 		return html.replace(/<for[^>]+>/g, function(a, b) {
@@ -86,12 +81,12 @@ Ext.define('core.DataViewVdt', {
 				return;
 			};
 			
-			setTimeout(function() {
+			//setTimeout(function() {
 				$.post(me.url, {}, function(data) {
 					me.data = data;
 					afterLoad.call(me);
 				});
-			},500);
+			//},500);
 		}
 		
 		function afterLoad() {
