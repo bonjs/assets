@@ -29,11 +29,20 @@
 		
 		<script src=http://www.che001.com/js/plugin/jquery/jquery-1.10.2.min.js></script>
 		<script src=third-party/director.min.js></script>
+		<script src=third-party/vdt.js></script>
 		
 		<style>
 			* {
 				margin: 0px;
 				padding: 0px;
+			}
+			a {
+				height: 30px;
+				display: inline-block;
+				border: 1px red solid;
+			}
+			li {
+				list-style: none;
 			}
 			#left {
 				width: 200px;
@@ -41,13 +50,16 @@
 				position: absolute;
 				border: 1PX BLUE SOLID;
 			}
-			#left ul li {
+			#left ul li a{
+				width: 100%;
 				height: 30px;
 				line-height: 30px;
 			}
-			li {
-				list-style: none;
+			#left ul li a:hover{
+				background: #444;
+				color: white;
 			}
+			
 			#center {
 				margin-left: 204px;
 				height: 100%;
@@ -65,22 +77,7 @@
 				border: 1px red solid;
 				list-style: none;
 			}
-			a {
-				height: 30px;
-				width: 100%;
-				display: inline-block;
-			}
-			a:hover {
-				background: #444;
-				color: white;
-			}
-			
-			label {
-				display: block;
-				width: 100%;
-				height: 30px;
-				padding-left: 20px;
-			}
+		
 			
 		</style>
 	</head>

@@ -2,7 +2,7 @@
  *author: spq 
  */
 Ext.define('js.module.User', {	// 声明类
-	extend: 'core.DataView',	// 继承的类，所有的ui组件都继承此类，如不设置则默认继承的Object类
+	extend: 'core.DataViewVdt',	// 继承的类，所有的ui组件都继承此类，如不设置则默认继承的Object类
 	// singleton: true,
 	renderTo: 'c1',				// 渲染到哪个dom，　［jq对象\HTMLElement对象\id字符串］
 	url: 'json/userDetail.json',		// 请求后台数据
@@ -22,9 +22,9 @@ Ext.define('js.module.User', {	// 声明类
 		'</div>',
 	],
 	data: {					// 如没有设置url, 则数据在此获取, 相当于m层
-		name: '曾经年少爱追梦',
-		sex: '男',
-		desc: '描述'
+		name: '',
+		sex: '',
+		desc: ''
 	},
 	listeners: {			// 要监听的事件, 下面两个事件是在父类Component中定义的
 		'render': function() {

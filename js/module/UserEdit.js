@@ -2,19 +2,19 @@
  *author: spq 
  */
 Ext.define('js.module.UserEdit', {
-	extend: 'core.DataView',
+	extend: 'core.DataViewVdt',
 	renderTo: 'c1',
 	template: [
 		'<div>',
 			'<ul>',
 				'<li>',
-					'name:<input name=name value="{name}" />',
+					'name:<input name="name" value={name} />',
 				'</li>',
 				'<li>',
-					'sex:<input name=sex value={sex} />',
+					'sex:<input name="sex" value={sex} />',
 				'</li>',
 				'<li>',
-					'desc:<input name=desc value="{desc}" />',
+					'desc:<input name="desc" value={desc} />',
 				'</li>',
 			'</ul>',
 			'<button>提交</button>',
@@ -22,18 +22,16 @@ Ext.define('js.module.UserEdit', {
 	],
 	url: 'json/userDetail.json',
 	data: {
-		name: 'sun',
-		sex: 'm',
-		desc: 'this is description'
+		name: '',
+		sex: '',
+		desc: ''
 	},
 	constructor: function() {
 		console.log('UserEdit 初始化');
 		this.super(arguments);
 		
-		this.on('afterload', function() {
-			$('button').click(function() {
-				alert('click')
-			})
-		});
+		$('button', this.el).click(function() {
+			alert('click')
+		})
 	}
 });

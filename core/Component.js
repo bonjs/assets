@@ -86,7 +86,7 @@ Ext.define('core.Component', {
 	destroy: function() {
 		this.onDestroy();
 		if(this.el) {
-			$(this.container).children().remove();
+			$(this.el).remove();
 		}
 		this.el = undefined;
 		this.template = undefined;
@@ -94,5 +94,13 @@ Ext.define('core.Component', {
 	},
 	onDestroy: function() {
 		//throw new error("抽象类必须被重写");
+	},
+	getId: function() {	// 获取一个唯一标识  形如 js.module.UserListWay-kipt646o
+		return [
+			this.$className,
+			'-',
+			Math.random().toString(36).slice(2, 10)
+		].join('');
 	}
+	
 });

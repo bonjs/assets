@@ -2,28 +2,34 @@
  *author: spq 
  */
 Ext.define('js.module.UserList', {
-	extend: 'core.DataView',
+	extend: 'core.DataViewVdt',
 	renderTo: 'c1',
 	url: 'json/userList.json',
 	template : [
-		'<div>',
-			'<tpl for=".">',
+		'<div style="border: 1px red solid">',
+			'<div>title: {title}</div>',
+			'<for users="u">',
 				'<ul>',
-					'<li>{name}</li>',
-					'<li>{sex}</li>',
-					'<li>{desc}</li>',
+					'<li>{u.name}</li>',
+					'<li>{u.sex}</li>',
+					'<li>{u.desc}</li>',
 				'</ul>',
-			'</tpl>',
+			'</for>',
 		'</div>'
 	],
-	/*
-	data: [
-		{name: 'sun', sex: 'm', desc:'fdsafds'},
-		{name: 'tom', sex: 'm', desc:'aaas'},
-	],*/
+	data: {
+		title: '',
+		users: []
+	},
 	constructor: function() {
 		var me = this;
 		console.log('UserList 初始化');
 		this.super(arguments);
+		this.on('load', function(data) {
+			this.data = {
+				title: '这是标题',
+				users:data
+			};
+		});
 	}
 });
