@@ -11,7 +11,7 @@ Ext.define('core.DataViewVdt', {
 		this.widgetId = this.getId();
 		this.template = this.template.constructor == Array ? this.template.join('') : this.template;
 		this.template = this.getTemplate(this.template);
-		console.log(this.template);
+		
 		var vdt = this.vdt = Vdt(this.template);
 		this.el.appendChild(vdt.render(this.data));
 		
