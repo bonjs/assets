@@ -82,7 +82,7 @@ Ext.define('core.DataViewVdt', {
 			};
 			
 			//setTimeout(function() {
-				$.post(me.url, {}, function(data) {
+				$.get(me.url, {}, function(data) {
 					me.data = data;
 					afterLoad.call(me);
 				});
