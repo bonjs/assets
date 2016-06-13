@@ -86,7 +86,7 @@ Ext.define('core.DataViewVdt', {
 					me.data = data;
 					afterLoad.call(me);
 				});
-			//},500);
+			//},100);
 		}
 		
 		function afterLoad() {
