@@ -1390,6 +1390,7 @@ var Vdt = function(source, options) {
         render: function(data) {
             vdt.renderTree.apply(vdt, arguments); 
             vdt.node = virtualDom.create(vdt.tree);
+            console.log(vdt.node)
             return vdt.node;
         },
 
