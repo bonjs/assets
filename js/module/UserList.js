@@ -5,7 +5,19 @@ Ext.define('js.module.UserList', {
 	extend : 'core.DataViewVdt',
 	renderTo : 'c1',
 	url : 'json/userList.json',
-	template : ['<div style="border: 1px red solid">', '<div>title: {title}</div>', '<for users="u">', '<ul>', '<li>{u.name}</li>', '<li>{u.sex}</li>', '<li>{u.desc}</li>', '</ul>', '</for>', '</div>'],
+	template : [
+		'<div style="border: 1px red solid">', 
+			'<div style="background-color: #066; COLOR: WHITE; PADDING: 3PX">title: {title}</div>', 
+			'<for users="u">', 
+				'<ul>', 
+					'<li>{u.name}</li>', 
+					'<li>{u.sex}</li>', 
+					'<li>{u.desc}</li>', 
+				'</ul>', 
+			'</for>', 
+			'<button>刷新</button>',
+		'</div>'
+	],
 	data : {
 		title : '',
 		users : []
@@ -20,13 +32,25 @@ Ext.define('js.module.UserList', {
 				users : data
 			};
 		});
-
-		setTimeout(function() {
+		
+		$('button', this.el).click(function() {
 			me.load([{
-					name : 'fdsfdas',
-					sex : 'f',
-					desc : 'fdsafdsafdsf'
-				}])
-		}, 2000);
+				"name" : "Sun",
+				"sex" : "m",
+				"desc" : "fdsafds"
+			}, {
+				"name" : "tom",
+				"sex" : "f",
+				"desc" : "aaas"
+			}, {
+				name : '魂牵梦萦',
+				sex : '男',
+				desc : '魂牵梦萦'
+			}, {
+				name : '魂牵梦萦',
+				sex : '男',
+				desc : '魂牵梦萦'
+			}]);
+		});
 	}
 });

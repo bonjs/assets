@@ -12,6 +12,8 @@ Ext.define('core.DataViewVdt', {
 		this.template = this.template.constructor == Array ? this.template.join('') : this.template;
 		this.template = this.getTemplate(this.template);
 		
+		console.log(this.template);
+		
 		var vdt = this.vdt = Vdt(this.template);
 		this.el.appendChild(vdt.render(this.data));
 		
@@ -61,8 +63,8 @@ Ext.define('core.DataViewVdt', {
 	getTemplate: function(html) {
 		return html.replace(/<for[^>]+>/g, function(a, b) {
 	   		var r = a.match(/([^\s=]+)=(['"\s]?)([^'"]+)\2(?=\s|$|>)/);
-	   		return '{' + r[1] +  '.map(function(' + r[3] + ') { return ';
-	   	}).replace(/<\/for>/g, '})}');
+	   		return '<div> {' + r[1] +  '.map(function(' + r[3] + ') { return ';
+	   	}).replace(/<\/for>/g, ' })} </div> ');
 	},
 	
 	load: function(arg0) {
