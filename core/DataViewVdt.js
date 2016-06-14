@@ -61,10 +61,10 @@ Ext.define('core.DataViewVdt', {
 	
 	// 将<for>标签转成vdt的形式
 	getTemplate: function(html) {
-		return html.replace(/<for[^>]+>/g, function(a, b) {
+		return html.replace(/<each[^>]+>/g, function(a, b) {
 	   		var r = a.match(/([^\s=]+)=(['"\s]?)([^'"]+)\2(?=\s|$|>)/);
 	   		return '<div> {' + r[1] +  '.map(function(' + r[3] + ') { return ';
-	   	}).replace(/<\/for>/g, ' })} </div> ');
+	   	}).replace(/<\/each>/g, ' })} </div> ');
 	},
 	
 	load: function(arg0) {

@@ -6,15 +6,15 @@ Ext.define('js.module.UserList', {
 	renderTo : 'c1',
 	url : 'json/userList.json',
 	template : [
-		'<div style="border: 1px red solid">', 
+		'<div style="border: 1px #ddd solid; padding: 3px">', 
 			'<div style="background-color: #066; COLOR: WHITE; PADDING: 3PX">title: {title}</div>', 
-			'<for users="u">', 
+			'<each users="u">', 
 				'<ul>', 
 					'<li>{u.name}</li>', 
 					'<li>{u.sex}</li>', 
 					'<li>{u.desc}</li>', 
 				'</ul>', 
-			'</for>', 
+			'</each>', 
 			'<button>刷新</button>',
 		'</div>'
 	],
@@ -40,15 +40,15 @@ Ext.define('js.module.UserList', {
 				"desc" : "fdsafds"
 			}, {
 				"name" : "tom",
-				"sex" : "f",
+				"sex" : "m",
 				"desc" : "aaas"
 			}, {
-				name : '魂牵梦萦',
-				sex : '男',
+				name : 'fdsafdsafds',
+				sex : 'm',
 				desc : '魂牵梦萦'
 			}, {
 				name : '魂牵梦萦',
-				sex : '男',
+				sex : 'm',
 				desc : '魂牵梦萦'
 			}]);
 		});
