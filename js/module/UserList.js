@@ -1,35 +1,32 @@
 /**
- *author: spq 
+ *author: spq
  */
 Ext.define('js.module.UserList', {
-	extend: 'core.DataViewVdt',
-	renderTo: 'c1',
-	url: 'json/userList.json',
-	template : [
-		'<div style="border: 1px red solid">',
-			'<div>title: {title}</div>',
-			'<for users="u">',
-				'<ul>',
-					'<li>{u.name}</li>',
-					'<li>{u.sex}</li>',
-					'<li>{u.desc}</li>',
-				'</ul>',
-			'</for>',
-		'</div>'
-	],
-	data: {
-		title: '',
-		users: []
+	extend : 'core.DataViewVdt',
+	renderTo : 'c1',
+	url : 'json/userList.json',
+	template : ['<div style="border: 1px red solid">', '<div>title: {title}</div>', '<for users="u">', '<ul>', '<li>{u.name}</li>', '<li>{u.sex}</li>', '<li>{u.desc}</li>', '</ul>', '</for>', '</div>'],
+	data : {
+		title : '',
+		users : []
 	},
-	constructor: function() {
+	constructor : function() {
 		var me = this;
 		console.log('UserList 初始化');
 		this.super(arguments);
-		this.on('load', function(data) {	// load之前可对返回的数据进行修改
+		this.on('load', function(data) {// load之前可对返回的数据进行修改
 			this.data = {
-				title: '这是标题',
-				users:data
+				title : '这是标题',
+				users : data
 			};
 		});
+
+		setTimeout(function() {
+			me.load([{
+					name : 'fdsfdas',
+					sex : 'f',
+					desc : 'fdsafdsafdsf'
+				}])
+		}, 2000);
 	}
 });

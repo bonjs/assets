@@ -71,7 +71,8 @@ Ext.define('core.DataViewVdt', {
 			return;
 		}
 		if(arg0.constructor == Object || arg0.constructor == Array) {
-			afterLoad.call(this, this.data);
+			this.data = arg0;
+			afterLoad.call(this);
 		} else if(arg0.constructor == String) {
 			if(me.fireEvent('beforeload') === false) {
 				return;
