@@ -4,7 +4,7 @@
 // 
 Ext.define('core.DataView', {
 	extend: 'core.Component',
-	//requires: ['core.XTemplate'],
+	requires: ['core.XTemplate'],
 	data: {},
 	
 	initData: function() {
@@ -30,9 +30,6 @@ Ext.define('core.DataView', {
 			this.fireEvent('afterload', data);
 		}
 	},
-	refresh: function() {
-		this.initData();
-	},
 	onRender: function(container, position) {	// 重写父类
 		var me = this;
 		
@@ -45,6 +42,9 @@ Ext.define('core.DataView', {
 			this.container = document.getElementById(container);
 		}
 		
+		this.initData();
+	},
+	refresh: function() {
 		this.initData();
 	}
 });

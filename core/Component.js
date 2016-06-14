@@ -4,7 +4,7 @@
 // 组件
 Ext.define('core.Component', {
 	extend : 'core.Observable',
-	requires: ['core.XTemplate'],
+	//requires: ['core.XTemplate'],
 	template : '<div></div>',
 	data: {},
 	constructor : function(config) {
@@ -59,7 +59,6 @@ Ext.define('core.Component', {
 		}
 		
 		this.container.appendChild(this.el);
-		
 	},
 	substitute: function(html, data) {
 		var reg = /\{([\w-]+)\}/g;	// /\{([^\}]+)\}/g
