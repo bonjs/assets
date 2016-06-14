@@ -4,7 +4,7 @@
 // 
 Ext.define('core.DataView', {
 	extend: 'core.Component',
-	requires: ['core.XTemplate'],
+	//requires: ['core.XTemplate'],
 	data: {},
 	
 	initData: function() {

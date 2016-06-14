@@ -4,7 +4,7 @@
 // 组件
 Ext.define('core.Component', {
 	extend : 'core.Observable',
-	//requires: ['core.XTemplate'],
+	requires: ['core.XTemplate'],
 	template : '<div></div>',
 	data: {},
 	constructor : function(config) {

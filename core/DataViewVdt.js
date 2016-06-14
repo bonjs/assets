@@ -64,7 +64,7 @@ Ext.define('core.DataViewVdt', {
 	// 将<for>标签转成vdt的形式
 	getTemplate: function(html) {
 		return html.replace(/<for[^>]+>/g, function(a, b) {
-	   		var r = a.match(/([^\s=]+)=(['"\s]?)([^'"]+)\2(?=\s|$|>)/)
+	   		var r = a.match(/([^\s=]+)=(['"\s]?)([^'"]+)\2(?=\s|$|>)/);
 	   		return '{' + r[1] +  '.map(function(' + r[3] + ') { return ';
 	   	}).replace(/<\/for>/g, '})}');
 	},
@@ -80,9 +80,10 @@ Ext.define('core.DataViewVdt', {
 			if(me.fireEvent('beforeload') === false) {
 				return;
 			};
-			
 			//setTimeout(function() {
-				$.get(me.url, {}, function(data) {
+				$.getJSON(me.url, {
+					id: 'rfdsar3e2re43t34'
+				}, function(data) {
 					me.data = data;
 					afterLoad.call(me);
 				});

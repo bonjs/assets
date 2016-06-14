@@ -25,7 +25,7 @@ Ext.define('js.module.UserList', {
 		var me = this;
 		console.log('UserList 初始化');
 		this.super(arguments);
-		this.on('load', function(data) {
+		this.on('load', function(data) {	// load之前可对返回的数据进行修改
 			this.data = {
 				title: '这是标题',
 				users:data

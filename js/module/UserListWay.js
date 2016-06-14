@@ -26,15 +26,12 @@ Ext.define('js.module.UserListWay', {
 		this.super(arguments);
 		
 		$('button', this.el).click(function() {
-			
-			
 			me.load([
-							{"name": "sun", "sex": "m", "desc":"fdsafds"},
-							{"name": "tom", "sex": "m", "desc":"aaas"},
-							
-							{"name": "测试", "sex": "m", "desc":"aaas"}
-						]);
-			
-		})
+				{"name": "sun", "sex": "m", "desc":"fdsafds"},
+				{"name": "tom", "sex": "m", "desc":"aaas"},
+				
+				{"name": "测试", "sex": "m", "desc":"aaas"}
+			]);
+		});
 	}
 });

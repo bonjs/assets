@@ -31,7 +31,7 @@ Ext.define('js.module.UserEdit', {
 		this.super(arguments);
 		
 		$('button', this.el).click(function() {
-			alert('click')
-		})
+			alert('submit');
+		});
 	}
 });
