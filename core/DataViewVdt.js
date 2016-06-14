@@ -15,10 +15,6 @@ Ext.define('core.DataViewVdt', {
 		var vdt = this.vdt = Vdt(this.template);
 		this.el.appendChild(vdt.render(this.data));
 		
-		//this.el.setAttribute('way-scope', this.widgetId);
-		
-		//this.el.innerHTML = this.template;
-
 		if (container.constructor == jQuery) {
 			this.container = container[0];
 		} else if (container instanceof HTMLElement) {
