@@ -6,6 +6,7 @@ Ext.define('js.module.UserEdit', {
 	renderTo: 'c1',
 	template: [
 		'<form id="f">',
+			'<div class="title">编辑用户</div>',
 			'<div>',
 				'<ul>',
 					'<li>',

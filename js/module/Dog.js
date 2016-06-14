@@ -6,7 +6,16 @@ Ext.define('js.module.Dog', {
 	// singleton: true,
 	renderTo: 'c1',
 	url: 'json/dogData.json',
-	template: '<div style="border: 1px red solid">dogName: {dogName}</div>',
+	template: [
+		'<div>',
+			'<div class="title">dog信息</div>',
+			'<ul>',
+				'<li>',
+					'dog名称:{dogName}',
+				'</li>',
+			'</ul>',
+		'</div>'
+	],
 	data: {dogName: ''},
 	constructor: function() {
 		console.log('dog 初始化');

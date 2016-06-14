@@ -6,8 +6,8 @@ Ext.define('js.module.UserList', {
 	renderTo : 'c1',
 	url : 'json/userList.json',
 	template : [
-		'<div style="border: 1px #ddd solid; padding: 3px">', 
-			'<div style="background-color: #066; COLOR: WHITE; PADDING: 3PX">title: {title}</div>', 
+		'<div>', 
+			'<div class="title">title: {title}</div>', 
 			'<each users="u">', 
 				'<ul>', 
 					'<li>{u.name}</li>', 

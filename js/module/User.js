@@ -7,7 +7,8 @@ Ext.define('js.module.User', {	// 声明类
 	renderTo: 'c1',				// 渲染到哪个dom，　［jq对象\HTMLElement对象\id字符串］
 	url: 'json/userDetail.json',		// 请求后台数据
 	template: [					// 对应的HTML结构，　相当于v层
-		'<div style="border: 1px red solid">',
+		'<div>',
+			'<div class="title">用户信息</div>',
 			'<ul>',
 				'<li>',
 					'名称:{name}',
