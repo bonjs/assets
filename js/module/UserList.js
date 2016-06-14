@@ -6,7 +6,7 @@ Ext.define('js.module.UserList', {
 	renderTo : 'c1',
 	url : 'json/userList.json',
 	template : [
-		'<div class="title">{title} - 共{count}条</div>', 
+		'<div class="title">用户列表 - 共{count}条</div>', 
 		'<each users="u">', 
 			'<ul>', 
 				'<li>{u.name}</li>', 
@@ -27,7 +27,6 @@ Ext.define('js.module.UserList', {
 		this.super(arguments);
 		this.on('load', function(data) {// load之前可对返回的数据进行修改
 			this.data = {
-				title : '用户列表',
 				count: data.length,
 				users : data
 			};
