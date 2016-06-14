@@ -21,18 +21,17 @@ Ext.define('js.MainRouter', {
 	constructor : function() {
 		var me = this;
 		this.super(arguments);
-		
 		var routes = {
-			'/user': function() {
+			'user': function() {
 				me.doRouter('js.module.User');
 			},
-			'/dog': function(id) {
+			'dog': function(id) {
 				me.doRouter('js.module.Dog');
 			},
-			'/userList': function(id) {
+			'userList': function(id) {
 				me.doRouter('js.module.UserList');
 			},
-			'/userEdit': function() {
+			'userEdit': function() {
 				me.doRouter('js.module.UserEdit');
 			}
 		};
