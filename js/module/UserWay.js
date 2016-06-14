@@ -26,9 +26,7 @@ Ext.define('js.module.UserWay', {
 		this.super(arguments);
 		
 		$('button', this.el).click(function() {
-			
 			me.load('json/userDetail.json');
-			
-		})
+		});
 	}
 });
