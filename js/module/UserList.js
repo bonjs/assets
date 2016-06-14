@@ -33,23 +33,7 @@ Ext.define('js.module.UserList', {
 		});
 		
 		$('button', this.el).click(function() {
-			me.load([{
-				"name" : "Sun",
-				"sex" : "m",
-				"desc" : "fdsafds"
-			}, {
-				"name" : "tom",
-				"sex" : "m",
-				"desc" : "aaas"
-			}, {
-				name : 'fdsafdsafds',
-				sex : 'm',
-				desc : '魂牵梦萦'
-			}, {
-				name : '魂牵梦萦',
-				sex : 'm',
-				desc : '魂牵梦萦'
-			}]);
+			me.load('json/userList2.json');
 		});
 	}
 });
