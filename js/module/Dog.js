@@ -10,9 +10,7 @@ Ext.define('js.module.Dog', {
 		'<div>',
 			'<div class="title">dog信息</div>',
 			'<ul>',
-				'<li>',
-					'dog名称:{dogName}',
-				'</li>',
+				'<li>dog名称:{dogName}</li>',
 			'</ul>',
 		'</div>'
 	],
