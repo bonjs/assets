@@ -25,10 +25,10 @@ Ext.define('js.module.Portal', {
 		var userList = Ext.create('js.module.UserList', {
 			renderTo: $('.a2')
 		});
-		var dog = Ext.create('js.module.Dog', {
+		var userEdit = Ext.create('js.module.UserEdit', {
 			renderTo: $('.a3')
 		});
-		var userEdit = Ext.create('js.module.UserEdit', {
+		var dog = Ext.create('js.module.Dog', {
 			renderTo: $('.a4')
 		});
 	}
