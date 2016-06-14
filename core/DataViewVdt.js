@@ -82,7 +82,7 @@ Ext.define('core.DataViewVdt', {
 			};
 			//setTimeout(function() {
 				$.getJSON(me.url, {
-					id: 'rfdsar3e2re43t34'
+					_d: new Date().getTime()
 				}, function(data) {
 					me.data = data;
 					afterLoad.call(me);
