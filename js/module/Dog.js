@@ -7,12 +7,10 @@ Ext.define('js.module.Dog', {
 	renderTo: 'c1',
 	url: 'json/dogData.json',
 	template: [
-		'<div>',
-			'<div class="title">dog信息</div>',
-			'<ul>',
-				'<li>dog名称:{dogName}</li>',
-			'</ul>',
-		'</div>'
+		'<div class="title">dog信息</div>',
+		'<ul>',
+			'<li>dog名称:{dogName}</li>',
+		'</ul>',
 	],
 	data: {dogName: ''},
 	constructor: function() {

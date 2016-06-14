@@ -9,13 +9,16 @@ Ext.define('core.DataViewVdt', {
 	onRender: function(container, position) {	// 重写父类
 		
 		this.widgetId = this.getId();
-		this.template = this.template.constructor == Array ? this.template.join('') : this.template;
-		this.template = this.getTemplate(this.template);
 		
-		console.log(this.template);
+		var tpl = this.template.constructor == Array ? this.template.join('') : this.template;
+		tpl = this.getTemplate(tpl);
+		this.template = '<div>' + tpl + '</div>';
 		
 		var vdt = this.vdt = Vdt(this.template);
-		this.el.appendChild(vdt.render(this.data));
+		
+		this.el = vdt.render(this.data);
+		this.el.setAttribute('widget', this.$className);
+		//this.el.appendChild(vdt.render(this.data));
 		
 		if (container.constructor == jQuery) {
 			this.container = container[0];

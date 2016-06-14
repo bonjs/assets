@@ -5,7 +5,7 @@ Ext.define('js.module.UserEdit', {
 	extend: 'core.DataViewVdt',
 	renderTo: 'c1',
 	template: [
-		'<form id="f">',
+		'<form>',
 			'<div class="title">编辑用户</div>',
 			'<div>',
 				'<ul>',
@@ -33,8 +33,22 @@ Ext.define('js.module.UserEdit', {
 		console.log('UserEdit 初始化');
 		this.super(arguments);
 		var me = this;
-		$('button', this.el).click(function() {
-			alert('提交');
+		
+		var form = $('form', this.el);
+		$('button', this.el).click(function(e) {
+			e.preventDefault();
+			
+			var d = me.getFormData(form);
+			alert('提交 ' + JSON.stringify(d));
 		});
+	},
+	getFormData: function(form) {
+		var s = $(form).serialize();
+		var o = {};
+		s.split('&').forEach(function(item, i) {
+			var it = item.split('=');
+			o[it[0]] = it[1];
+		});
+		return o;
 	}
 });
