@@ -62,7 +62,7 @@ Ext.define('core.DataViewVdt', {
 		
 	},
 	
-	// 将<for>标签转成vdt的形式
+	// 将<each>标签转成vdt的形式
 	getTemplate: function(html) {
 		return html.replace(/<each[^>]+>/g, function(a, b) {
 	   		var r = a.match(/([^\s=]+)=(['"\s]?)([^'"]+)\2(?=\s|$|>)/);
