@@ -66,8 +66,8 @@ Ext.define('core.DataViewVdt', {
 	getTemplate: function(html) {
 		return html.replace(/<each[^>]+>/g, function(a, b) {
 	   		var r = a.match(/([^\s=]+)=(['"\s]?)([^'"]+)\2(?=\s|$|>)/);
-	   		return '<div> {' + r[1] +  '.map(function(' + r[3] + ') { return ';
-	   	}).replace(/<\/each>/g, ' })} </div> ');
+	   		return ' {' + r[1] +  '.map(function(' + r[3] + ') { return ';
+	   	}).replace(/<\/each>/g, ' })}  ');
 	},
 	
 	load: function(arg0) {
@@ -75,13 +75,14 @@ Ext.define('core.DataViewVdt', {
 		if(arg0 == null) {
 			return;
 		}
+		
+		if(me.fireEvent('beforeload') === false) {
+			return;
+		};
 		if(arg0.constructor == Object || arg0.constructor == Array) {
 			this.data = arg0;
 			afterLoad.call(this);
 		} else if(arg0.constructor == String) {
-			if(me.fireEvent('beforeload') === false) {
-				return;
-			};
 			//setTimeout(function() {
 				$.getJSON(arg0, {
 					_d: new Date().getTime()
