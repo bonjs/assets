@@ -7,6 +7,7 @@ Ext.define('core.Component', {
 	//requires: ['core.XTemplate'],
 	template : '<div></div>',
 	data: {},
+	roles: [],
 	constructor : function(config) {
 		this.callParent(arguments);
 		if (config) {
@@ -36,6 +37,8 @@ Ext.define('core.Component', {
 		this.el.setAttribute('widget', this.$className);
 		
 		this.onRender(container, position);
+		
+		this.initRoles();
 
 		this.fireEvent('render');
 
@@ -60,6 +63,15 @@ Ext.define('core.Component', {
 		
 		this.container.appendChild(this.el);
 	},
+	
+	initRoles: function() {
+		var me = this;
+		this.roles = [];
+		$('*[data-role]', this.el).each(function(i, dom) {
+			me.roles.push(dom);
+		});
+	},
+	
 	substitute: function(html, data) {
 		var reg = /\{([\w-]+)\}/g;	// /\{([^\}]+)\}/g
 		return html.replace(reg, function(el, key) {
