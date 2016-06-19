@@ -33,6 +33,9 @@ Ext.define('js.MainRouter', {
 			},
 			'userEdit': function() {
 				me.doRouter('js.module.UserEdit');
+			},
+			'dyadicArray': function() {
+				me.doRouter('js.module.DyadicArray');
 			}
 		};
 		
