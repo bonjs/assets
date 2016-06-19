@@ -29,40 +29,12 @@ Ext.define('core.DataViewVdt', {
 		}
 		this.container.appendChild(this.el);
 		
-		this.initData();
-	},
-	initData: function() {
-		
-		this.load(this.data);
 		if(typeof this.url == 'string') {
 			this.load(this.url);	
 		}
-		
-		/*
-		if(typeof this.url == 'string') {
-			
-			if(me.fireEvent('beforeload') === false) {
-				return;
-			};
-			$.post(this.url, {}, function(data) {
-				me.data = data;
-				afterLoad.call(me);
-			});
-		} else if(this.data) {
-			afterLoad.call(me, this.data);
-		}
-		
-		function afterLoad() {
-			this.fireEvent('load', me.data);
-			
-			//way.set(this.widgetId, data);
-			this.vdt.update(me.data);
-			this.fireEvent('afterload', me.data);
-		}*/
-		
 	},
 	
-	// 将<each>标签转成vdt的形式
+	// 将<for>标签转成vdt的形式
 	getTemplate: function(html) {
 		return html.replace(/<each[^>]+>/g, function(a, b) {
 	   		var r = a.match(/([^\s=]+)=(['"\s]?)([^'"]+)\2(?=\s|$|>)/);
