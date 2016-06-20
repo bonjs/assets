@@ -37,8 +37,22 @@ Ext.define('core.DataViewVdt', {
 	// 将<for>标签转成vdt的形式
 	getTemplate: function(html) {
 		return html.replace(/<each[^>]+>/g, function(a, b) {
-	   		var r = a.match(/([^\s=]+)=(['"\s]?)([^'"]+)\2(?=\s|$|>)/);
-	   		return ' {' + r[1] +  '.map(function(' + r[3] + ') { return ';
+	   		//var r = a.match(/([^\s=]+)=(['"\s]?)([^'"]+)\2(?=\s|$|>)/);
+	   		var r = a.match(/([^\s=]+)=(['"\s]?)([^'"]+)\2(?=\s|$|>)/g);
+	   	
+	   		var arrVariable = [];
+	   		var indexVariable = [];
+	   		
+	   		for(var i = 0; i < r.length; i ++) {
+	   			b = r[i].replace(/[\s|"]/g, '').split('=');
+	   			if(b[0] === 'index') {
+	   				indexVariable = b;
+	   			} else {
+	   				arrVariable = b;
+	   			}
+	   		}
+	   		
+	   		return ' {' + arrVariable[0] +  '.map(function(' + arrVariable[1] + ', ' + (indexVariable[1] !== undefined ? indexVariable[1] : 'index') + ') { return ';
 	   	}).replace(/<\/each>/g, ' })}  ');
 	},
 	
