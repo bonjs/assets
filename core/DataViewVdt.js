@@ -56,6 +56,11 @@ Ext.define('core.DataViewVdt', {
 	   	}).replace(/<\/each>/g, ' })}  ');
 	},
 	
+	update: function(data) {	// 局部数据更新(只更新传入的的数据, 没有传入的数据保持原状)
+		
+	},
+	
+	
 	load: function(arg0) {
 		var me = this;
 		if(arg0 == null) {
