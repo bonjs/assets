@@ -3,14 +3,13 @@
  */
 Ext.define('js.module.Dog', {
 	extend: 'core.DataViewVdt',
-	// singleton: true,
 	renderTo: 'c1',
 	url: 'json/dogData.json',
 	template: [
 		'<div class="title">dog信息</div>',
 		'<ul>',
 			'<li>dog名称:{dogName}</li>',
-		'</ul>',
+		'</ul>'
 	],
 	data: {dogName: ''},
 	constructor: function() {

@@ -1,37 +1,100 @@
 <html>
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<script src="ext-4.2.1.883/src/Ext.js"></script>
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		
-		<!-- 可去掉　-->
-		<!--<script src="ext-4.2.1.883/src/lang/String.js"></script>-->
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		
+		<script src="ext/src/Ext.js"></script>
+		
+		<!-- 可去掉　
+		<script src="ext/src/lang/String.js"></script>-->
 		
 		<!-- 可去掉　需要设置disableCaching为false -->
-		<!--<script src="ext-4.2.1.883/src/lang/Date.js"></script>-->
+		<!--<script src="ext/src/lang/Date.js"></script>-->
 		
-		<script src="ext-4.2.1.883/src/lang/Object.js"></script>
-		<script src="ext-4.2.1.883/src/lang/Array.js"></script>
-		<script src="ext-4.2.1.883/src/lang/Function.js"></script>
-		<script src="ext-4.2.1.883/src/class/Base.js"></script>
+		<script src="ext/src/lang/Object.js"></script>
+		<script src="ext/src/lang/Array.js"></script>
+		<script src="ext/src/lang/Function.js"></script>
+		<script src="ext/src/class/Base.js"></script>
 		
 		<!--
-		<script src="ext-4.2.1.883/src/Ext-more.js"></script>
-		<script src="ext-4.2.1.883/src/Support.js"></script>
+		<script src="ext/src/util/Format.js"></script>
+		<script src="ext/src/Ext-more.js"></script>
+		<script src="ext/src/Support.js"></script>
 		-->
-		<script src="ext-4.2.1.883/src/class/Class.js"></script>
-		<script src="ext-4.2.1.883/src/class/ClassManager.js"></script>
-		<script src="ext-4.2.1.883/src/class/Loader.js"></script>
+		<script src="ext/src/class/Class.js"></script>
+		<script src="ext/src/class/ClassManager.js"></script>
+		<script src="ext/src/class/Loader.js"></script>
 		<!--
-		<script src="ext-4.2.1.883/src/lang/Error.js"></script>
+		<script src="ext/src/lang/Error.js"></script>
 		-->
 		
-		<script src=http://www.che001.com/js/plugin/jquery/jquery-1.10.2.min.js></script>
+		<script src=http://cdn.bootcss.com/jquery/1.12.2/jquery.min.js></script>
 		<script src=third-party/director.min.js></script>
+		<script src=third-party/vdt.js></script>
 		
 		<style>
 			* {
 				margin: 0px;
 				padding: 0px;
+			}
+			a {
+				height: 30px;
+				display: inline-block;
+			}
+			li {
+				list-style: none;
+			}
+			#left {
+				width: 200px;
+				height: 100%;
+				position: absolute;
+				border: 1PX BLUE SOLID;
+			}
+			#left ul li a{
+				width: 100%;
+				height: 30px;
+				line-height: 30px;
+				text-align: center;
+			}
+			#left ul li a:hover{
+				background: #066;
+				color: white;
+			}
+			
+			#center {
+				margin-left: 204px;
+				height: 100%;
+				border: 1PX BLUE SOLID;
+			}
+			
+			label {
+				display: inline-block;
+				width: 50px;
+				text-align: right;
+			}
+			
+			.title {
+				font-weight: bold;
+				background-color: #066;
+				height: 20px;
+				padding: 3px;
+				font-size: 15px;
+				color: white;
+			}
+			
+			[widget='js.module.UserEdit'] ul li{
+				padding: 3px;
+			}
+			
+			[widget='js.module.UserList'] ul li{
+				width: 30%;
+				border: 0px;
+				display: inline-block;
 			}
 			
 		</style>
@@ -39,13 +102,20 @@
 	
 	<body>
 		<div id=c1></div>
-		
 		<script>
+			// /
+			// http://www.cnblogs.com/Showshare/p/director-chinese-tutorial.html
 			Ext.Loader.setConfig({
 				disableCaching: false
 			});
 			
-			Ext.create('js.module.User');
+			Ext.create('js.module.Dog');
+			
+			//https://github.com/twigkit/tempo
+			//https://github.com/Javey/vdt.js
+			//https://segmentfault.com/a/1190000004029168
+			//http://blog.csdn.net/cengjingcanghai123/article/details/48480473
+		
 		</script>
 	</body>
 </html>

@@ -101,6 +101,18 @@
 	</head>
 	
 	<body>
+		<script type="text/fdsafdsfd" id="aa">
+			<div class="title">ffsfds用户列表 - 共{count}条</div>
+			<each users="u">
+				<ul>
+					<li>{u.name}</li> 
+					<li>{u.sex}</li>
+					<li>{u.desc}</li> 
+				</ul>
+			</each>
+			<button>刷新</button>
+		</script>
+		
 		<div>
 			<div id="left">
 				<ul>
@@ -122,7 +134,6 @@
 			Ext.Loader.setConfig({
 				disableCaching: false
 			});
-			
 			Ext.create('js.MainRouter');
 			
 			//https://github.com/twigkit/tempo

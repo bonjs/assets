@@ -39,7 +39,6 @@ Ext.define('core.DataViewVdt', {
 		return html.replace(/<each[^>]+>/g, function(a, b) {
 	   		//var r = a.match(/([^\s=]+)=(['"\s]?)([^'"]+)\2(?=\s|$|>)/);
 	   		var r = a.match(/([^\s=]+)=(['"\s]?)([^'"]+)\2(?=\s|$|>)/g);
-	   	
 	   		var arrVariable = [];
 	   		var indexVariable = [];
 	   		
@@ -52,8 +51,10 @@ Ext.define('core.DataViewVdt', {
 	   			}
 	   		}
 	   		
+	   		console.log(' {' + arrVariable[0] +  '.map(function(' + arrVariable[1] + ', ' + (indexVariable[1] !== undefined ? indexVariable[1] : 'index') + ') { return ');
+	   		
 	   		return ' {' + arrVariable[0] +  '.map(function(' + arrVariable[1] + ', ' + (indexVariable[1] !== undefined ? indexVariable[1] : 'index') + ') { return ';
-	   	}).replace(/<\/each>/g, ' })}  ');
+	   	}).replace(/<\/each>/g, ' })}  ').replace(/\n/g, '');
 	},
 	
 	update: function(data) {	// 局部数据更新(只更新传入的的数据, 没有传入的数据保持原状)
