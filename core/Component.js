@@ -66,9 +66,10 @@ Ext.define('core.Component', {
 	
 	initRoles: function() {
 		var me = this;
-		this.roles = [];
+		this.roles = {};
 		$('*[data-role]', this.el).each(function(i, dom) {
-			me.roles.push(dom);
+			me.roles[dom['data-role']] = dom;
+			
 		});
 	},
 	

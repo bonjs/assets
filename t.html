@@ -13,6 +13,9 @@
         		<div>标题</div>
         		<li>{
         		row.map(function(r, i) {
+        			if(r == 'sun') {
+        				r = '哈哈';
+        			}
         			return <span>{r}</span>
         		})
         	}</li></div>
@@ -28,7 +31,7 @@
     
     var model = {
     	data: [
-	    	['a', 'b', 'c', 'd'],
+	    	['sun', 'b', 'c', 'd'],
 	    	['a', 'b', 'c', 'd'],
 	    	['a', 'b', 'c', 'd'],
 	    ]

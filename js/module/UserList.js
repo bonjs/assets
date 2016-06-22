@@ -5,8 +5,7 @@ Ext.define('js.module.UserList', {
 	extend : 'core.DataViewVdt',
 	renderTo : 'c1',
 	url : 'json/userList.json',
-	template: document.getElementById('aa').innerHTML,
-	template1212423 : [
+	template : [
 		'<div class="title">用户列表 - 共{count}条</div>', 
 		'<each users="u">', 
 			'<ul>', 
