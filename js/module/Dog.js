@@ -8,7 +8,7 @@ Ext.define('js.module.Dog', {
 	template: [
 		'<div class="title">dog信息</div>',
 		'<ul>',
-			'<li>dog名称:{dogName}</li>',
+			'<li innerHTML={dogName}>dog名称:{dogName}</li>',
 		'</ul>'
 	],
 	data: {dogName: ''},
