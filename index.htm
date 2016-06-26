@@ -103,14 +103,17 @@
 	<body>
 		<script type="text/dsfdsa" id="aa">
 			<div class="title">ffsfds用户列表 - 共{count}条</div>
-			<each users="u">
-				<ul>
-					<li>{u.name}</li> 
-					<li>{u.sex}</li>
-					<li>{u.desc}</li> 
-				</ul>
-			</each>
-			<button>刷新</button>
+			{
+				users.map(function(u, i) {
+					return  <ul>
+						<li>{u.name + "aaa"}</li> 
+						<li>{dict[u.sex]}</li>
+						<li >{u.desc}</li> 
+						<li ><a href="#" ev-click={function() {alert(u.desc)}}>编辑</a></li> 
+					</ul>
+				})
+			}
+			<button>{test.a.b}刷新</button>
 		</script>
 		
 		<div>
@@ -142,5 +145,6 @@
 			//http://blog.csdn.net/cengjingcanghai123/article/details/48480473
 		
 		</script>
+		
 	</body>
 </html>
