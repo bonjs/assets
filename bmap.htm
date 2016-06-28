@@ -36,6 +36,7 @@
 		<script src=http://cdn.bootcss.com/jquery/1.12.2/jquery.min.js></script>
 		<script src=third-party/director.min.js></script>
 		<script src=third-party/vdt.js></script>
+		<script src="http://api.map.baidu.com/getscript?v=2.0&ak=8nSiXscCROaAl1M2zwZgkycm&services=&t=20160513110936"></script>
 		
 		<style>
 			* {
@@ -79,7 +80,6 @@
 			}
 			
 			.title {
-				font-weight: bold;
 				background-color: #066;
 				height: 20px;
 				padding: 3px;
@@ -97,53 +97,35 @@
 				display: inline-block;
 			}
 			
+			.title {
+				font-weight: bold;
+				background-color: #066;
+				height: 20px;
+				padding: 3px;
+				font-size: 15px;
+				color: white;
+			}
+			
+			.row {
+				padding: 5px;
+			}
+			
 		</style>
 	</head>
 	
 	<body>
-		<script type="text/dsfdsa" id="aa">
-			<div class="title">ffsfds用户列表 - 共{count}条</div>
-			{
-				users.map(function(u, i) {
-					return  <ul>
-						<li>{u.name + "aaa"}</li> 
-						<li>{dict[u.sex]}</li>
-						<li >{u.desc}</li> 
-						<li ><a href="#" ev-click={function() {alert(u.desc)}}>编辑</a></li> 
-					</ul>
-				})
-			}
-			<button>{test.a.b}刷新</button>
-		</script>
-		
-		<div>
-			<div id="left">
-				<ul>
-					<li><a href="#/user">user</a></li>
-					<li><a href="#/userList">userList</a></li>
-					<li><a href="#/dog">dog</a></li>
-					<li><a href="#/userEdit">userEdit</a></li>
-					<li><a href="#/dyadicArray">dyadicArray</a></li>
-				</ul>
-			</div>
-			<div id="center">
-				<div id=c1></div>
-			</div>
-		</div>
-		
+		<div style="position:relative; margin: 100px; border: 1px red soldi">
+		<div id="container" style="position: absolute; left: 20px; top: 50px; border: 1px red solid;width: 500px; height: 400px"></div>
+		</div> 
 		<script>
-			// /
 			// http://www.cnblogs.com/Showshare/p/director-chinese-tutorial.html
 			Ext.Loader.setConfig({
 				disableCaching: false
 			});
-			Ext.create('js.MainRouter');
 			
-			//https://github.com/twigkit/tempo
-			//https://github.com/Javey/vdt.js
-			//https://segmentfault.com/a/1190000004029168
-			//http://blog.csdn.net/cengjingcanghai123/article/details/48480473
-		
+			var map = new BMap.Map("container");          // 创建地图实例  
+			var point = new BMap.Point(116.404, 39.915);  // 创建点坐标  
+			map.centerAndZoom(point, 15);                 // 初始化地图，设置中心点坐标和地图级别  
 		</script>
 		
 	</body>

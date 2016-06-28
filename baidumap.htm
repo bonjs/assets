@@ -23,14 +23,14 @@
         "<div style='border: 1px red solid'>fdsfs</div>";
 	window. map = new BMap.Map("allmap");
 	var point = new BMap.Point(116.404, 39.915);
-	var marker = new BMap.Marker(point);
+	window.marker = new BMap.Marker(point);
 	var infoWindow = new BMap.InfoWindow(sContent);  // 创建信息窗口对象
 	map.centerAndZoom(point, 15);
 	map.addOverlay(marker);
 	marker.addEventListener("click", function(){          
 	   this.openInfoWindow(infoWindow);
 	   //图片加载完毕重绘infowindow
-	   document.getElementById('imgDemo').onload = function (){
+	   document.getElementById('allmap').onload = function (){
 		   infoWindow.redraw();   //防止在网速较慢，图片未加载时，生成的信息框高度比图片的总高度小，导致图片部分被隐藏
 	   }
 	});

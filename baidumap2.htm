@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<style type="text/css">
+		body, html {width: 100%;height: 100%;margin:0;font-family:"微软雅黑";}
+		#allmap{width:100%;height:500px;}
+		p{margin-left:5px; font-size:14px;}
+	</style>
+	
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=8nSiXscCROaAl1M2zwZgkycm"></script>
+	<title>添加复杂内容的信息窗口</title>
+</head>
+<body>
+	<div id="allmap"></div>
+	<p>点击标注点，可查看由文本，图片构成的复杂型信息窗口</p>
+</body>
+</html>
+<script type="text/javascript">
+	// 百度地图API功能
+	var sContent =
+        "<div style='border: 1px red solid'>fdsfs</div>";
+	window. map = new BMap.Map("allmap");
+	function addMarker(point, index){  // 创建图标对象   
+		var myIcon = new BMap.Icon("https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png", new BMap.Size(23, 25), {    
+		// 指定定位位置。   
+		// 当标注显示在地图上时，其所指向的地理位置距离图标左上    
+		// 角各偏移10像素和25像素。您可以看到在本例中该位置即是   
+		   // 图标中央下端的尖角位置。    
+		   offset: new BMap.Size(110, 115),    
+		   // 设置图片偏移。   
+		   // 当您需要从一幅较大的图片中截取某部分作为标注图标时，您   
+		   // 需要指定大图的偏移位置，此做法与css sprites技术类似。    
+		   imageOffset: new BMap.Size(0, 0 - index * 25)   // 设置图片偏移    
+		 });      
+		// 创建标注对象并添加到地图   
+		 var marker = new BMap.Marker(point, {icon: myIcon});    
+		 map.addOverlay(marker);    
+		}    
+		// 随机向地图添加10个标注    
+		var bounds = map.getBounds();    
+		var lngSpan = bounds.maxX - bounds.minX;    
+		var latSpan = bounds.maxY - bounds.minY;    
+		for (var i = 0; i < 10; i ++) {    
+			console.log('a')
+		 var point = new BMap.Point(bounds.minX + lngSpan * (Math.random() * 0.7 + 0.15),    
+		                            bounds.minY + latSpan * (Math.random() * 0.7 + 0.15));    
+		 addMarker(point, i);    
+		}
+</script>

@@ -9,6 +9,7 @@
     <div>
     	<ul>
         {data.map(function(row, index) {
+        	console.log(test);
         	return  <div>
         		<div>标题</div>
         		<li>{
@@ -34,7 +35,8 @@
 	    	['sun', 'b', 'c', 'd'],
 	    	['a', 'b', 'c', 'd'],
 	    	['a', 'b', 'c', 'd'],
-	    ]
+	    ],
+	    test: {}
     };
 
     document.body.appendChild(vdt.render(model));

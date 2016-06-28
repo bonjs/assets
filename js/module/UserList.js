@@ -5,7 +5,8 @@ Ext.define('js.module.UserList', {
 	extend : 'core.DataViewVdt',
 	renderTo : 'c1',
 	url : 'json/userList.json',
-	template : [
+	template: document.getElementById('aa').innerHTML,
+	templatefds : [
 		'<div class="title">用户列表 - 共{count}条</div>', 
 		'<each users="u">', 
 			'<ul>', 
@@ -18,8 +19,13 @@ Ext.define('js.module.UserList', {
 	],
 	data : {
 		title : '',
-		count: '',
-		users : []
+		count: '2',
+		users : [],
+		test: {
+			a: {
+				b: 'fdsafsd'
+			}
+		}
 	},
 	constructor : function() {
 		var me = this;
@@ -28,7 +34,16 @@ Ext.define('js.module.UserList', {
 		this.on('load', function(data) {// load之前可对返回的数据进行修改
 			this.data = {
 				count: data.length,
-				users : data
+				users : data,
+				dict: {
+					'm': '男',
+					'f': '女'
+				},
+				test: {
+					a: {
+						b: 'http://fdsafs.com/id='
+					}
+				}
 			};
 		});
 		
