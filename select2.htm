@@ -1,33 +1,30 @@
-
-<!DOCTYPE html>
 <html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title>vdt template engine demo</title>
-    <link href="//cdn.bootcss.com/select2/4.0.3/css/select2.css" rel="stylesheet">
+<head >
 </head>
 <body>
-<div id=a style="width: 600px"><div>fds</div></div>
-<script src="//cdn.bootcss.com/jquery/1.12.3/jquery.js"></script>
-<script src="//cdn.bootcss.com/select2/4.0.3/js/select2.js"></script>
-<script>
-	$('#a').select2({
-		data: [
-			{
-				id:'a',
-				text:'aaaa'
-			}, {
-				id:'b',
-				text:'bbbb'
-			}, {
-				id:'c',
-				text:'cccc'
-			}
-		]
-	});
+    <link href="//cdn.bootcss.com/select2/4.0.3/css/select2.css" rel="stylesheet">
+	<script src="//cdn.bootcss.com/jquery/1.12.3/jquery.js"></script>
+	<script src="//cdn.bootcss.com/select2/4.0.3/js/select2.js"></script>
 	
+	<select id=a style="width: 600px"></select>
 	
-	
-</script>
+	<script>
+		$('#a').select2({
+			data: [
+				{
+					id:'1',
+					text:'aaaa'
+				}, {
+					id:'2',
+					text:'bbbb'
+				}, {
+					id:'3',
+					text:'cccc'
+				}
+			]
+		});
+		
+		$('#a').select2('val', '2');
+		
+	</script>
 </body>
-</html>

@@ -1,0 +1,38 @@
+<html>
+	<head>
+	</head>
+	
+	<body>
+		<link href="//cdn.bootcss.com/select2/4.0.3/css/select2.css" rel="stylesheet">
+		<script src="//cdn.bootcss.com/jquery/1.12.4/jquery.js"></script>
+		<script src="//cdn.bootcss.com/select2/4.0.3/js/select2.js"></script>
+		
+		
+		<select id=a style="width: 200px" >
+		</select>
+		<script>
+		
+			$('#a').select2({
+				minimumResultsForSearch: Infinity,
+				data: [
+					{
+						id: '1',
+						text: 'one',
+					}, {
+						id: '2',
+						text: 'two',
+					}, {
+						id: '3',
+						text: 'three',
+					}
+				]
+			});
+			$('#a').on('select2:select', function(e) {
+				console.log(this);
+			})
+			
+			$('#a').select2('val', '2')
+			
+		</script>
+	</body>
+</html>
