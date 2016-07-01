@@ -15,25 +15,19 @@
 				minimumResultsForSearch: Infinity,
 				data: [
 					{
-						id: '1',
+						id: 'one',
 						text: 'one',
-						a: 'fdsa'
 					}, {
-						id: '2',
+						id: 'two',
 						text: 'two',
-						a: 'fdsa'
 					}, {
-						id: '3',
+						id: 'three',
 						text: 'three',
-						a: 'fdsa'
 					}
 				]
 			});
-			$('#a').on('select2:select', function(e) {
-				console.log(this);
-			})
 			
-			$('#a').val(3);
+			$('#a').select2('val', "two");
 			
 			
 		</script>

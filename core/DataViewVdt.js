@@ -20,6 +20,10 @@ Ext.define('core.DataViewVdt', {
 		this.el.setAttribute('widget', this.$className);
 		//this.el.appendChild(vdt.render(this.data));
 		
+		if(container == undefined) {
+			return;
+		}
+		
 		if (container.constructor == jQuery) {
 			this.container = container[0];
 		} else if (container instanceof HTMLElement) {
@@ -51,14 +55,30 @@ Ext.define('core.DataViewVdt', {
 	   			}
 	   		}
 	   		
-	   		console.log(' {' + arrVariable[0] +  '.map(function(' + arrVariable[1] + ', ' + (indexVariable[1] !== undefined ? indexVariable[1] : 'index') + ') { return ');
-	   		
 	   		return ' {' + arrVariable[0] +  '.map(function(' + arrVariable[1] + ', ' + (indexVariable[1] !== undefined ? indexVariable[1] : 'index') + ') { return ';
 	   	}).replace(/<\/each>/g, ' })}  ').replace(/\n/g, '');
 	},
 	
 	update: function(data) {	// 局部数据更新(只更新传入的的数据, 没有传入的数据保持原状)
 		
+	},
+	
+	// 	清空列表  (将data中的数据清空，数组变成空数组，对象变成空对象，字符串变成空字符串．　保留function)
+	clear: function() {
+		var d = this.data;
+		for(var k in d) {
+			if(d[k] == null) {
+				return;
+			}
+			if(d[k].constructor == Array) {
+				d[k] = [];
+			} else if(d[k].constructor == Object) {
+				d[k] = {};
+			} else if(d[k].constructor == String) {
+				d[k] = "";
+			}
+		}
+		this.refresh();
 	},
 	
 	
@@ -93,7 +113,7 @@ Ext.define('core.DataViewVdt', {
 		}
 	},
 	refresh: function() {
-		this.initData();
+		this.vdt.update(this.data);
 	}
 });
 
