@@ -7,7 +7,7 @@
 			border: 0px;
 		}
 		.collapse {
-			border: 1px #ccc solid;
+			border: 1px #ddd solid;
 			position: absolute;
 		}
 		.collapse ul {
@@ -44,7 +44,7 @@
 		.left {
 			width: 150px;
 			height: 100%;
-			border-right: 1px #ccc solid;
+			border-right: 1px #ddd solid;
 		}
 		.month {
 			width: 169px;
@@ -57,7 +57,7 @@
 			cursor: pointer;
 		}
 		.hide {
-			display: none;
+			display: none !important;
 		}
 	</style>
 </head>
@@ -124,9 +124,7 @@
 					collapse.on('click', 'div.year li', function(a, b) {	// 点击年时, 年的样式更改
 						collapse.find('div.year li').removeClass('collapse-li-select');
 						$(this).addClass('collapse-li-select');
-					});
-					
-					collapse.on('click', '.year li', function() {
+						
 						monthModule.showMonth();
 					});
 					
@@ -189,7 +187,6 @@
 						},
 						setValue: function(month) {
 							months.children().each(function(i, it) {
-								console.log($(it).attr('month'))
 								if($(it).attr('month') == month) {
 									$(it).addClass('collapse-li-select');
 								} else {
