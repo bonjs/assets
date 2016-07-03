@@ -138,9 +138,7 @@
 						activateIndex: activateIndex,
 						step: step,
 						getValue: function() {
-							return yearDiv.children().eq(activateIndex).children().each(function(i, it) {
-								return $(it).hasClass('collapse-li-select');
-							}).html();
+							return yearDiv.find('ul li.collapse-li-select').html();
 						},
 						setValue: function(year) {
 							var tabIndex = parseInt((date.getFullYear() - year) / 8);
@@ -195,9 +193,7 @@
 							})
 						},
 						getValue: function() {
-							return months.children().filter(function(i, it) {
-								return $(it).hasClass('collapse-li-select');
-							}).attr('month');
+							return months.find('li.collapse-li-select').attr('month');
 						}
 					};
 				}();
