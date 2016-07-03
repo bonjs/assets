@@ -4,14 +4,12 @@
 	<style>
 		* {
 			padding: 0px; 
+			margin: 0px;
 			border: 0px;
 		}
 		.collapse {
 			border: 1px #ddd solid;
 			position: absolute;
-		}
-		.collapse ul {
-		    margin: 0px;
 		}
 		.collapse>div {
 			 float: left;
@@ -30,8 +28,11 @@
 		.collapse .month ul li{
 		    width: 34px;
 		}
-		
-		.arrows {
+		.collapse .month {
+			width: 169px;
+			margin-top: 31px;
+		}
+		.collapse .arrows {
 			cursor: pointer;
 		}
 		
@@ -41,16 +42,13 @@
 		.collapse-li-select {
 			background-color: #ff7f00 !important;
 		}
-		.left {
+		.collapse .left {
 			width: 150px;
 			height: 100%;
 			border-right: 1px #ddd solid;
 		}
-		.month {
-			width: 169px;
-			margin-top: 31px;
-		}
-		.close {
+		
+		.collapse .close {
 			position: absolute;
 			right: 0px;
 			top: 0px;
@@ -82,13 +80,16 @@
 					].join('');
 					
 					var collapse = $(html); 
-					$(document.body).append(collapse);
-					collapse.css('left', 	me.offset().left);
-					collapse.css('top', 	me.offset().top + me.outerHeight());
+					collapse.css({
+						left: me.offset().left,
+						top: me.offset().top + me.outerHeight()
+					});
 					
 					collapse.on('click', '.close', function() {
 						collapse.addClass('hide');
 					});
+					
+					$(document.body).append(collapse);
 					return {
 						collapse: collapse
 					}
@@ -135,12 +136,12 @@
 					}
 					return {
 						activateIndex: activateIndex,
+						step: step,
 						getValue: function() {
 							return yearDiv.children().eq(activateIndex).children().each(function(i, it) {
 								return $(it).hasClass('collapse-li-select');
 							}).html();
 						},
-						step: step,
 						setValue: function(year) {
 							var tabIndex = parseInt((date.getFullYear() - year) / 8);
 							this.step(tabIndex);
@@ -167,7 +168,6 @@
 						months.append(m);
 						$('div.month', collapse).append(months);
 					}
-					var currentMonth = null;
 					collapse.on('click', 'div.month li', function(a, b) {
 						collapse.find('div.month li').removeClass('collapse-li-select');
 						$(this).addClass('collapse-li-select');
@@ -205,17 +205,17 @@
 				this.on({
 					focus: function() {
 						collapseModule.collapse.removeClass('hide');
-						
-						if(/^\d{4}-\d{2}$/.test(me.val())) {
-							var arr = me.val().split('-');
-							var year = arr[0];
-							var month = arr[1];
-
-							yearModule.setValue(year);
-							monthModule.setValue(month);
-						}
-					},
+					}
 				});
+				
+				if(/^\d{4}-\d{2}$/.test(me.val())) {
+					var arr = me.val().split('-');
+					var year = arr[0];
+					var month = arr[1];
+
+					yearModule.setValue(year);
+					monthModule.setValue(month);
+				}
 			};
 			
 			$("#a").dateSelector();
