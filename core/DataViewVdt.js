@@ -40,6 +40,23 @@ Ext.define('core.DataViewVdt', {
 	
 	// 将<each>标签转成vdt的形式
 	getTemplate: function(html) {
+		var reg = /<each([^>]+)>/g;
+		return html.replace(reg, function(x, a) {
+			var r = /(\w*\.*\w*)+?="(\w*\.*\w*)+?"/g;
+			var arr, indexVar, arrVar, itemVar;
+			while(arr = r.exec(a)) {
+				if(arr[1] == 'index') {
+					indexVar = arr[2];
+				} else {
+					arrVar = arr[1];
+					itemVar = arr[2];
+				}
+			}
+			return ' { ' + arrVar + '.map(function(' + itemVar + ', ' + (indexVar !== undefined ? indexVar : 'index') + ') { return ';
+		}).replace(/<\/each>/g, ' })}  ').replace(/\n/g, '');
+	},
+	/*
+	getTemplate: function(html) {
 		return html.replace(/<each[^>]+>/g, function(a, b) {
 	   		//var r = a.match(/([^\s=]+)=(['"\s]?)([^'"]+)\2(?=\s|$|>)/);
 	   		var r = a.match(/([^\s=]+)=(['"\s]?)([^'"]+)\2(?=\s|$|>)/g);
@@ -54,11 +71,10 @@ Ext.define('core.DataViewVdt', {
 	   				arrVariable = b;
 	   			}
 	   		}
-	   		
 	   		return ' {' + arrVariable[0] +  '.map(function(' + arrVariable[1] + ', ' + (indexVariable[1] !== undefined ? indexVariable[1] : 'index') + ') { return ';
 	   	}).replace(/<\/each>/g, ' })}  ').replace(/\n/g, '');
 	},
-	
+	*/
 	update: function(data) {	// 局部数据更新(只更新传入的的数据, 没有传入的数据保持原状)
 		
 	},
