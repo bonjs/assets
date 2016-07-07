@@ -19,9 +19,9 @@ Ext.define('js.module.UserEdit', {
 						'<label>desc:</label><input name="desc" value={desc} />',
 					'</li>',
 				'</ul>',
-				'<button>提交</button>',
 			'</div>',
 		'</form>',
+				'<button>提交</button>',
 	],
 	url: 'json/userDetail.json',
 	data: {
@@ -40,6 +40,12 @@ Ext.define('js.module.UserEdit', {
 			
 			var d = me.getFormData(form);
 			alert('提交 ' + JSON.stringify(d));
+			
+			me.vdt.update({
+				name: 'fdafds',
+				sex: 'm',
+				desc: 'fdafd'
+			})
 		});
 	},
 	getFormData: function(form) {

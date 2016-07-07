@@ -79,7 +79,7 @@ Ext.define('core.DataViewVdt', {
 		
 	},
 	
-	// 	清空列表  (将data中的数据清空，数组变成空数组，对象变成空对象，字符串变成空字符串．　保留function)
+	// 	清空列表  (将data中的数据清空, 保留function, 数组变成空数组，对象变成空对象，字符串变成空字符串)
 	clear: function() {
 		var d = this.data;
 		for(var k in d) {
