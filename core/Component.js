@@ -5,9 +5,9 @@
 Ext.define('core.Component', {
 	extend : 'core.Observable',
 	//requires: ['core.XTemplate'],
+	requires: ['core.RoleMap'],
 	template : '<div></div>',
 	data: {},
-	roles: [],
 	constructor : function(config) {
 		this.callParent(arguments);
 		if (config) {
@@ -22,10 +22,10 @@ Ext.define('core.Component', {
 			//change the value to remove any on prototype
 		}
 
-		if (this.renderTo) {
+		//if (this.renderTo) {
 			this.render(this.renderTo);
 			delete this.renderTo;
-		}
+		//}
 	},
 
 	render : function(container, position) {
@@ -52,6 +52,10 @@ Ext.define('core.Component', {
 		this.template = this.substitute(this.template, this.data);
 		
 		this.el.innerHTML = this.template;
+	
+		if(container == undefined) {
+			return;
+		}
 
 		if (container.constructor == jQuery) {
 			this.container = container[0];
@@ -66,15 +70,16 @@ Ext.define('core.Component', {
 	
 	initRoles: function() {
 		var me = this;
-		this.roles = {};
+		
+		this.roles = new core.RoleMap(),
 		$('*[data-role]', this.el).each(function(i, dom) {
-			me.roles[dom['data-role']] = dom;
-			
+			//me.roles[dom['data-role']] = dom;
+			me.roles.set(dom['data-role'], dom);
 		});
 	},
 	
 	substitute: function(html, data) {
-		var reg = /\{([\w-]+)\}/g;	// /\{([^\}]+)\}/g
+		var reg = /\{([^\}]+)\}/g; ///\{([\w-]+)\}/g;	
 		return html.replace(reg, function(el, key) {
 			var v = data[key];
 			return v === void 0 ? key : v;

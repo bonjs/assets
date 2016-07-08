@@ -102,18 +102,18 @@
 	
 	<body>
 		<script type="text/dsfdsa" id="aa">
-			<div class="title">用户列表 - 共{count}条</div>
+			<div class="title">用户列表 - 共{users.length}条</div>
 			{
 				users.map(function(u, i) {
 					return  <ul>
 						<li>{u.name + "aaa"}</li> 
-						<li>{dict[u.sex]}</li>
+						<li>{u.sex}</li>
 						<li >{u.desc}</li> 
 						<li ><a href="#" ev-click={function() {alert(u.desc)}}>编辑</a></li> 
 					</ul>
 				})
 			}
-			<button>{test.a.b}刷新</button>
+			<button>刷新</button>
 		</script>
 		
 		<div>
