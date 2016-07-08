@@ -3,7 +3,7 @@
  */
 // 事件处理
 Ext.define('core.Observable', {
-	requires : ['core.Event'],
+	requires : 'core.Event',
 	filterOptRe : /^(?:scope|delay|buffer|single)$/,
 	
 	constructor : function(config) {

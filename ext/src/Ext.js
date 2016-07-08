@@ -921,4 +921,4 @@ Ext.globalEval = Ext.global.execScript
         }());
     };
 
-bonjs = Ext;
+E = Ext;

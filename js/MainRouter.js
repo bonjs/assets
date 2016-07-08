@@ -20,7 +20,7 @@ Ext.define('js.MainRouter', {
 	// 构造方法
 	constructor : function() {
 		var me = this;
-		this.super(arguments);
+		this.callParent(arguments);
 		var routes = {
 			'user': function() {
 				me.doRouter('js.module.User');
@@ -33,9 +33,6 @@ Ext.define('js.MainRouter', {
 			},
 			'userEdit': function() {
 				me.doRouter('js.module.UserEdit');
-			},
-			'dyadicArray': function() {
-				me.doRouter('js.module.DyadicArray');
 			}
 		};
 		

@@ -23,7 +23,7 @@ Ext.define('js.module.DyadicArray', {
 	constructor : function() {
 		var me = this;
 		console.log('UserList 初始化');
-		this.super(arguments);
+		this.callParent(arguments);
 		this.load({
 			data: [
 				['a', 'b', 'c'],

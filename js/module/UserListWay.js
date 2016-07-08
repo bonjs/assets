@@ -23,7 +23,7 @@ Ext.define('js.module.UserListWay', {
 	constructor: function() {
 		var me = this;
 		console.log('UserList 初始化');
-		this.super(arguments);
+		this.callParent(arguments);
 		
 		$('button', this.el).click(function() {
 			me.load([

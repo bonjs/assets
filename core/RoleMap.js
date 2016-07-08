@@ -11,3 +11,5 @@ Ext.define('core.RoleMap', {
 		this[key] = v;
 	}
 });
+
+

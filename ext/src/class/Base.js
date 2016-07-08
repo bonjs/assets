@@ -576,9 +576,6 @@ var noArgs = [],
                   ((method = method.$owner ? method : method.caller) &&
                         method.$owner.superclass.self[method.$name])).apply(this, args || noArgs);
         },
-        super: function(args) {
-            return this.callParent(args);
-        },
 
         // Documented downwards
         callSuper: function(args) {
@@ -934,42 +931,6 @@ var noArgs = [],
             //<debug error>
             if (!superMethod) {
                 method = this.callParent.caller;
-                var parentClass, methodName;
-
-                if (!method.$owner) {
-                    if (!method.caller) {
-                        throw new Error("Attempting to call a protected method from the public scope, which is not allowed");
-                    }
-
-                    method = method.caller;
-                }
-
-                parentClass = method.$owner.superclass;
-                methodName = method.$name;
-
-                if (!(methodName in parentClass)) {
-                    throw new Error("this.callParent() was called but there's no such method (" + methodName +
-                                ") found in the parent class (" + (Ext.getClassName(parentClass) || 'Object') + ")");
-                }
-            }
-            //</debug>
-
-            return superMethod.apply(this, args || noArgs);
-        },
-        
-        super: function(args) {
-            // NOTE: this code is deliberately as few expressions (and no function calls)
-            // as possible so that a debugger can skip over this noise with the minimum number
-            // of steps. Basically, just hit Step Into until you are where you really wanted
-            // to be.
-            var method,
-                superMethod = (method = this.super.caller) && (method.$previous ||
-                        ((method = method.$owner ? method : method.caller) &&
-                                method.$owner.superclass[method.$name]));
-
-            //<debug error>
-            if (!superMethod) {
-                method = this.super.caller;
                 var parentClass, methodName;
 
                 if (!method.$owner) {

@@ -31,7 +31,7 @@ Ext.define('js.module.User', {	// 声明类
 	// 构造方法
 	constructor : function() {		// 如不重写可以不写
 		console.log('user 初始化');
-		this.super(arguments);
+		this.callParent(arguments);
 		
 		this.on('say', function() {	// 自定义事件
 			console.lgo('say');

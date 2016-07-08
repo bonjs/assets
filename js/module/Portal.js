@@ -17,7 +17,7 @@ Ext.define('js.module.Portal', {
 		users : []
 	},
 	constructor : function() {
-		this.super(arguments);
+		this.callParent(arguments);
 		
 		var user = Ext.create('js.module.User', {
 			renderTo: $('.a1')

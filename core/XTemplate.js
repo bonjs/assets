@@ -10,7 +10,7 @@ Ext.define('core.XTemplate', {
     	}
     },
 	constructor: function() {
-		this.super(arguments);
+		this.callParent(arguments)
 		var me = this,
 	        s = me.html,
 	        re = /<tpl\b[^>]*>((?:(?=([^<]+))\2|<(?!tpl\b[^>]*>))*?)<\/tpl>/,
