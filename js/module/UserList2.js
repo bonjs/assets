@@ -26,7 +26,7 @@ Ext.define('js.module.UserList2', {
 	constructor : function() {
 		var me = this;
 		window.m = this;
-		console.log('UserList 初始化');
+		//console.log('UserList 初始化');
 		this.callParent(arguments);
 		
 		$('button', this.el).on('click', function() {

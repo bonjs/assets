@@ -21,24 +21,24 @@ Ext.define('js.module.User', {	// 声明类
 	},
 	listeners: {			// 要监听的事件, 下面两个事件是在父类Component中定义的
 		'render': function() {
-			console.log('render fire');
+			//console.log('render fire');
 		},
 		'beforerender': function() {
-			console.log('渲染前触发')	; //　
+			//console.log('渲染前触发')	; //　
 		}
 	},
 	
 	// 构造方法
 	constructor : function() {		// 如不重写可以不写
-		console.log('user 初始化');
+		//console.log('user 初始化');
 		this.callParent(arguments);
 		
 		this.on('say', function() {	// 自定义事件
-			console.lgo('say');
+			//console.lgo('say');
 		});	
 	},
 	say : function() {
-		console.log('user say');
+		//console.log('user say');
 		this.fireEvent('say');		// 触发事件
 	}
 });

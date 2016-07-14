@@ -56,13 +56,11 @@ Ext.define('core.Component', {
 		if(container == undefined) {
 			return;
 		}
-
-		if (container.constructor == jQuery) {
-			this.container = container[0];
-		} else if (container instanceof HTMLElement) {
-			this.container = container;
-		} else if (container.constructor == String) {
+	
+		if(container.constructor == String) {
 			this.container = document.getElementById(container);
+		} else {
+			this.container = $(container)[0];
 		}
 		
 		this.container.appendChild(this.el);

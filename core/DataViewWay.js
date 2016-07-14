@@ -15,7 +15,7 @@ Ext.define('core.DataViewWay', {
 		this.widgetId = this.getId();
 		this.template = this.template.constructor == Array ? this.template.join('') : this.template;
 		this.template = this.parseTemplate(this.template);
-		console.log(this.template);
+		//console.log(this.template);
 		
 		//this.el.setAttribute('way-scope', this.widgetId);
 		

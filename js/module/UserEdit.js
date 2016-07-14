@@ -30,7 +30,7 @@ Ext.define('js.module.UserEdit', {
 		desc: ''
 	},
 	constructor: function() {
-		console.log('UserEdit 初始化');
+		//console.log('UserEdit 初始化');
 		this.callParent(arguments);
 		var me = this;
 		
