@@ -91,7 +91,6 @@ DOMDelegator.prototype.listenTo = function listenTo(eventName) {
     }
 
     this.events[eventName]++;
-
     if (this.events[eventName] !== 1) {
         return
     }
@@ -101,7 +100,6 @@ DOMDelegator.prototype.listenTo = function listenTo(eventName) {
         listener = this.rawEventListeners[eventName] =
             createHandler(eventName, this)
     }
-    
     if(window.addEventListener) {		// 增加对ie8支持
 	    this.target.addEventListener(eventName, listener, true)
     } else {
@@ -143,13 +141,10 @@ DOMDelegator.prototype.unlistenTo = function unlistenTo(eventName) {
 function createHandler(eventName, delegator) {
     var globalListeners = delegator.globalListeners;
     var delegatorTarget = delegator.target;
-
-    return handler
-
+    
+    return handler;
     function handler(ev) {
-    	
         var globalHandlers = globalListeners[eventName] || []
-
         if (globalHandlers.length > 0) {
             var globalEvent = new ProxyEvent(ev);
             globalEvent.currentTarget = delegatorTarget;
@@ -161,14 +156,19 @@ function createHandler(eventName, delegator) {
     }
 }
 
+function t(s){
+	alert(s)
+	console && console.log(s)
+}
+
 function findAndInvokeListeners(elem, ev, eventName) {
     var listener = getListener(elem, eventName, ev)
     if (listener && listener.handlers.length > 0) {
         var listenerEvent = new ProxyEvent(ev);
         listenerEvent.currentTarget = listener.currentTarget
         callListeners(listener.handlers, listenerEvent)
-
         if (listenerEvent._bubbles) {
+        	
             var nextTarget = listener.currentTarget.parentNode
             findAndInvokeListeners(nextTarget, ev, eventName)
         }
@@ -186,7 +186,7 @@ function getListener(target, type, ev) {
  
     var allHandler = events.event
 
-    if (!handler && !allHandler && ev.bubbles) {
+    if (!handler && !allHandler && (ev.bubbles || window.detachEvent)) {
         return getListener(target.parentNode, type, ev)
     }
 
